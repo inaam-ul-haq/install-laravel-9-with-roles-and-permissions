@@ -1,0 +1,634 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;800;900&display=swap');
+
+:root {
+    --main-color: #f2b146;
+    --black-color: black;
+    --main-rgb-bg: rgb(242, 177, 70)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* ----- Custom Scroll Bar Styling -----*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track 
+::-webkit-scrollbar-track {
+    border-radius: 0px;
+}*/
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--black-color);
+}
+
+/* ----- Navbar Styling -----*/
+#navbar {
+    width: 100% !important;
+    height: 100px !important;
+    position: relative !important;
+}
+
+.nav {
+    z-index: 9;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+}
+
+.navbar_brand {
+    width: 15%;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+}
+
+.navbar_brand img {
+    height: 60px !important;
+    line-height: 60px !important;
+    margin-left: 20px;
+}
+
+.menu {
+    width: 85%;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+}
+
+.menu_items {
+    width: 80%;
+    height: 60px;
+    line-height: 60px;
+}
+
+.menu_nav,
+.social_media_nav {
+    list-style: none;
+}
+
+.social_media_nav {
+    margin-right: 10px;
+}
+
+.menu_item {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.menu_link,
+.social_media_link {
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    color: var(--black-color);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.menu_link:hover {
+    color: var(--main-color);
+}
+
+.active {
+    color: var(--main-color);
+}
+
+.social_media {
+    width: 20%;
+    height: 80px;
+    line-height: 80px;
+}
+
+.social_media_link {
+    width: 25px;
+    margin-right: 15px;
+    float: right;
+}
+
+.social_media_link:hover .cls-1 {
+    transition: all 0.3s ease 0s;
+    stroke: white;
+}
+
+.social_media_link:hover .cls-2 {
+    transition: all 0.3s ease 0s;
+    fill: white;
+}
+
+.social_bg {
+    width: 30%;
+    height: 100px;
+    top: 0;
+    left: 0;
+    float: right;
+    /* opacity: 0.8;  for demo purpose  */
+}
+
+.mob_navbar {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.mob_navbar {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.mob_menu_nav {
+    width: 100%;
+}
+
+/* ----- Hero Styling -----*/
+#hero_section {
+    /* background-color: aquamarine; */
+    /* margin-top: 60px; */
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container-hero {
+    width: 90%;
+    /* background-color: burlywood; */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero_head {
+    /* background-color: red; */
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero_shape {
+    /* background-color: gold; */
+    width: 50%;
+    height: 100%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero_title {
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--main-color);
+    margin-bottom: -18px;
+}
+
+.hero_heading {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--black-color);
+}
+
+.hero_description {
+    width: 440px;
+}
+
+.hero_description p {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: justify;
+    text-justify: inter-word;
+    letter-spacing: 1px;
+    color: var(--black-color);
+}
+
+.strong {
+    font-weight: 900;
+    color: var(--main-color);
+}
+
+.hero_button {
+    width: 200px;
+    height: 50px;
+    margin-top: 15px;
+    display: block;
+}
+
+.hero_shape_line {
+    /* background-color: #cccccc; */
+    width: 30%;
+    position: absolute;
+    position: -webkit-sticky;
+    bottom: 0px;
+    left: 0px;
+}
+
+.main_button {
+    transition: all 0.3s ease 0s;
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 22px 10px 22px;
+    font-size: 14px;
+    border-radius: 30px;
+    font-weight: 500;
+    color: var(--black-color);
+}
+
+.main_button:hover {
+    background-color: transparent;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+/* ----- About Styling -----*/
+#about {
+    /* border: 1px solid aquamarine; */
+    height: 100vh;
+    position: relative;
+}
+
+.about_head {
+    width: 100%;
+}
+
+.about_head h1 {
+    margin-top: 60px;
+    /* background-color: palegoldenrod; */
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+}
+
+.about_shape_1 {
+    width: 5%;
+    margin-right: 0;
+    top: 48px;
+    position: absolute;
+    right: 60px;
+}
+
+.about_shape_2 {
+    width: 20%;
+    position: absolute;
+    left: 0px;
+    top: 196px;
+}
+
+.about_shape_3 {
+    width: 14%;
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+}
+
+#about_main {
+    /* border: 1px solid red; */
+    width: 90%;
+    margin: auto;
+    height: 76vh;
+    position: relative;
+}
+
+#about_image {
+    width: 38%;
+}
+
+#about_image img {
+    width: 100%;
+    height: 95%;
+}
+
+#about_content {
+    width: 56%;
+    /* background-color: aliceblue; */
+    position: absolute;
+    right: 0;
+    height: 100%;
+}
+
+#whoami {
+    font-size: 25px;
+    color: var(--black-color);
+    font-weight: 700;
+    margin-top: 70px;
+}
+
+.whoami_des {
+    width: 80%;
+    text-align: justify;
+    text-justify: inter-word;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.about_button {
+    width: 200px;
+    height: 50px;
+    margin-top: 37px;
+    display: block;
+}
+
+/* ----- Skills Styling -----*/
+#services {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: #fffbf0;
+}
+
+.skill_head {
+    width: 100%;
+    position: absolute;
+    top: 60px;
+}
+
+.skill_des {
+    width: 100%;
+    position: absolute;
+    top: 124px;
+    /* background-color: aliceblue; */
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.skill_head h1 {
+    /* background-color: palegoldenrod; */
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+}
+
+.skill_shape_1 {
+    width: 10%;
+    position: absolute;
+    left: 25px;
+    top: 0;
+}
+
+.skill_shape_2 {
+    width: 10%;
+    position: absolute;
+    right: 25px;
+    bottom: 0;
+}
+
+#skill_main {
+    width: 90%;
+    margin: auto;
+    height: 60vh;
+    position: relative;
+    /* border: 1px solid red; */
+    top: 175px;
+    display: flex;
+}
+
+.skill_left {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.skill_right {
+    width: 35%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.skill_left_head h1 {
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--black-color);
+}
+
+.skill_bar {
+    background-color: var(--black-color);
+    border-radius: 12px;
+    position: relative;
+    width: 100%;
+    height: 10px;
+}
+
+.skill_loading_bar {
+    background-color: var(--main-color);
+    border-radius: 12px;
+    height: 100%;
+}
+
+.skills {
+    margin-top: 10px;
+}
+
+.skills h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ----- calltoaction Styling -----*/
+#calltoaction {
+    width: 100%;
+    height: 175px;
+    position: relative;
+    overflow: hidden;
+}
+
+.calltoaction_shape {
+    position: absolute;
+    width: 46%;
+    top: -65px;
+    left: -24px;
+}
+
+.calltoaction_main {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 175px;
+    margin: auto;
+    position: relative;
+}
+
+.calltoaction_title {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.calltoaction_button {
+    width: 200px;
+    height: 50px;
+    margin-top: 37px;
+    display: block;
+}
+
+/* ----- portfolio Styling -----*/
+#portfolio{
+    width: 100%;
+    position: relative;
+    /* background: red; */
+    height: 100vh;
+}
+
+.portfolio_main{
+    width: 90%;
+    /* background: antiquewhite; */
+    height: 300px;
+    margin: auto;
+    position: relative;
+    top: 40px;
+}
+.portfolio_iten{
+    background-color: yellow;
+    height: 100%;
+    width: 270px;
+    border-radius: 14px;
+    margin-right: 20px;
+}
+.content-slider {
+    list-style: none outside none;
+    /* background-color: black; */
+    height: 300px;
+    border-radius: 14px;
+}
+
+.content-slider li {
+    transition: all 0.3s ease 0s;
+    height: 100%;
+    border-radius: 9px;
+}
+
+.port_img{
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+}
+
+.content-slider li:hover .port_img{
+    display: none;
+}
+
+.overlay{
+    background-color: var(--main-rgb-bg);
+    height: 100%;
+    width: 100%;
+    border-radius: 14px;
+}
+
+/* ----- footer Styling -----*/
+#contact{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: var(--black-color);
+    overflow: hidden;
+}
+
+#contact img{
+    position: absolute;
+    width: 100%;
+    top: -50px;
+    left: 136px;
+    opacity: 0.4;
+}
+
+#contact .container{
+    height: 100% !important;
+    margin-top: 118px;
+    position: relative;
+}
+
+.contact-footer{
+    height: 410px !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.footer-item-title{
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+.footer-item-form{
+    height: 100%;
+    width: 100%;
+    padding: 12px;
+}
+
+.menu_list{
+    list-style: none;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.menu_list li{
+    margin-top: 10px;
+}
+
+.menu_list li a{
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.menu_list li a:hover {
+    color: var(--main-color);
+}
+
+/* ----- blog Styling -----*/
+#blog_section{
+    width: 100%;
+    margin-bottom: 25px;
+}
+.blog_heading{
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+}
+
+.card-title a{
+    color: var(--main-color) !important;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+.blog_posts{
+    margin-top: 34px;
+}
+
+.card-title a:hover{
+    color: var(--black-color) !important;
+}
