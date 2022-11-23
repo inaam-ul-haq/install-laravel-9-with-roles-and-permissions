@@ -1,66 +1,126 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# install laravel 9 with roles and permissions
+In this Repository you will get complete laravel 9 application with roles and auth. you can clone this repository and boom you setup your laravel application.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## System Requirements
 
-## About Laravel
+* Windows 10
+* XAMPP, WAMPP server [Download](https://www.apachefriends.org/download.html)
+* PHP 7.4 or better
+* nodejs [Download](https://nodejs.org/en/download/)
+* composer [Download](https://getcomposer.org/Composer-Setup.exe)
+* git bash [Download](https://git-scm.com/downloads)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+I hope you already install xampp server
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 1. Install Git Bash
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Download git bash from this link -> [Download](https://git-scm.com/downloads)
+* simply install
+* after installation process complete
+* open folder where you want to install your laravel application
+* right click in folder and click in project folder and click on **Git Bash Here** option then run this command
 
-## Learning Laravel
+## 2. install composer
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* Download composer from this lnik -> [Download](https://getcomposer.org/Composer-Setup.exe)
+* simply install
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 3. install nodeJs
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* download link for nodejs -> [Download](https://nodejs.org/en/download/)
+* simple install
 
-## Laravel Sponsors
+# Setup Application
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 1. Create application
+run this command. replace **your-app-name** with your app name
 
-### Premium Partners
+    composer create-project laravel/laravel:^9.0 your-app-name
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+[Larave Composer Link](https://laravel.com/docs/9.x/installation#installation-via-composer)
 
-## Contributing
+## 2. Change Directory
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    cd your-app-name
+     
+## 3. create database
 
-## Code of Conduct
+* go to [phpmyadmin](http://localhost/phpmyadmin/index.php?route=/server/databases&server=1)
+* create new database
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 4. edit in .env file
 
-## Security Vulnerabilities
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=database_name
+    DB_USERNAME=root
+    DB_PASSWORD=
+    
+## 4. install spatie package for assign roles and permissions
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    composer require spatie/laravel-permission
+    
+[Spatie Package Website Link](https://spatie.be/docs/laravel-permission/v4/installation-laravel)
 
-## License
+## 5. add this code in config/app.php in providers
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    Spatie\Permission\PermissionServiceProvider::class,
+
+## 6. run this in git bash
+
+    php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+    
+to publish the migration and permission.php file
+
+## 7.  Set User Roles and Permissions
+
+* add this file (UserSeeder) in database/seeders directory to create user roles [UserSeeder](https://www.mediafire.com/file/cdnz4kda8ky5zfv/UserSeeder.php/file)
+* make changes in this file according to you need.
+
+## 8. add this code in User Model 
+
+    use Spatie\Permission\Traits\HasRoles;
+    use Spatie\Permission\Models\Role;
+    use Spatie\Permission\Models\Permission;
+    use Auth;
+
+add this under User class
+
+    use HasFactory,HasRoles;
+    
+    protected $guarded = [];
+    
+## 9. add this code in http/kernal => routeMiddleware
+
+    //roles and permission
+    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+    'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+    
+## 10. run this command
+
+    php artisan optimize:clear
+    php artisan config:clear
+
+## 11. create your table migration files if needed otherwise run this command 
+    
+    php artisan migrate:fresh --seed
+
+## Now install Authentication (Login/Register Screens)
+
+Run the bolow commands to install laravel ui package
+
+    1. composer require laravel/ui:*
+    2. php artisan ui bootstrap --auth you can use (vue/bootstrap/react)
+    3. npm install && npm run dev
+    4. run laravel project with -> php artisan serve
+    5. visit -> [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
+**Auther**: [Inaam ul haq](https://github.com/Inaam-ul-haq)
+
+**YouTube:** [Techzhubb](https://www.youtube.com/c/techzhub)
+
+**Instagram:** [Techzhubb](https://www.instagram.com/techzhubb/)
+
+**Facebook:** [Techzhubb](https://www.facebook.com/techzhubb/)
