@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Auth::routes();
+Route::get('verify-email', function () {
+    return view('verify_email');
+})->name('verify_email');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes(['logout' => false, 'verify' => true]);
+
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+
+Route::group(
+    ['prefix' => "/auth/", "middleware" => ["auth", 'checkMail']],
+    function () {
+        Route::get('', [HomeController::class, 'index'])->name('auth');
+        Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+    }
+);

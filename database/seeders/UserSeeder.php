@@ -35,15 +35,17 @@ class UserSeeder extends Seeder
         $role->givePermissionTo(Permission::all());
 
         $user1 = new User;
-        $user1->name = 'Majid Fazal';
-        $user1->email = 'majidfazal@gmail.com';
-        $user1->password = Hash::make('majidfazal');
+        $user1->name = 'Admin';
+        $user1->email = 'admin@gmail.com';
+        $user1->email_verified_at = '2023-02-28 15:12:23';
+        $user1->password = Hash::make('admin123');
         $user1->save();
         $user1->assignRole('admin');
 
         $user2 = new User;
         $user2->name = 'user';
         $user2->email = 'user@gmail.com';
+        $user2->email_verified_at = '2023-02-28 15:12:23';
         $user2->password = Hash::make('test123');
         $user2->save();
         $user2->assignRole('user');
