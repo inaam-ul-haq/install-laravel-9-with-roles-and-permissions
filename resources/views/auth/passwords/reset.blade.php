@@ -1,6 +1,4 @@
-@extends('layouts.app')
-@section('PAGE_TITLE', 'Password')
-@section('content')
+<x-guest-layout pageTitle="Reset Password">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -70,4 +68,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-guest-layout>

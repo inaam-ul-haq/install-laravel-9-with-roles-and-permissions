@@ -9,6 +9,8 @@ class {{ class }} extends Controller
 {
     private $_request = null;
     private $_modal = null;
+    private $_directory = '';
+    private $_route = '';
 
     /**
      * Create a new controller instance.
@@ -28,9 +30,8 @@ class {{ class }} extends Controller
      */
     public function index()
     {
-        $all = $this->get_all($this->_modal);
-
-        return view({{ routeName }}, compact('all'));
+        $data['all'] = $this->get_all($this->_modal);
+        return view($this->_directory . '.all', compact('data'));
     }
 
     /**
@@ -40,7 +41,7 @@ class {{ class }} extends Controller
      */
     public function create()
     {
-        // return view({{ view_name }});
+        return view($this->_directory . '.create');
     }
 
     /**
@@ -58,7 +59,7 @@ class {{ class }} extends Controller
         $data = $this->_request->except('_token');
         $var = $this->add($this->_modal, $data);
 
-        return redirect()->route('{{routeName}}');
+        return redirect()->route($this->_route . '.index');
     }
 
     /**
@@ -70,7 +71,7 @@ class {{ class }} extends Controller
     public function show($id)
     {
         $data = $this->get_by_id($this->_modal, $id);
-        return view('{{view_name}}', compact('data'));
+        return view($this->_directory . 'show', compact('data'));
     }
 
     /**
@@ -82,14 +83,14 @@ class {{ class }} extends Controller
     public function edit($id)
     {
         $data = $this->get_by_id($this->_modal, $id);
-        return view('{{view_name}}', compact('data'));
+        return view($this->_directory . '.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  {{ model }}  $modal
+     * @param  \{{ namespacedModel }}  $modal
      * @return \Illuminate\Http\Response
      */
     public function update($id)
@@ -99,21 +100,20 @@ class {{ class }} extends Controller
         ]);
 
         $data = $this->_request->except('_token', '_method');
-
         $data = $this->get_by_id($this->_modal, $id)->update($data);
 
-        return redirect()->route('{{routeName}}.index');
+        return redirect()->route($this->_route . '.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  {{ model }}  $modal
+     * @param  \{{ namespacedModel }} $modal
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $this->delete($this->_modal, $id);
-        return redirect()->route('{{ routeName }}');
+        $this->get_by_id($this->_modal, $id)->delete();
+        return redirect()->route($this->_route . '.index');
     }
 }

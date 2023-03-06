@@ -1,6 +1,4 @@
-@extends('layouts.app')
-@section('PAGE_TITLE', 'Verification')
-@section('content')
+<x-guest-layout pageTitle="Verify Your Email Address">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -26,4 +24,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-guest-layout>
