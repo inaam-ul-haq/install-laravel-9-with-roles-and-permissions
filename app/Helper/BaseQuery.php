@@ -37,6 +37,14 @@ trait BaseQuery
     }
 
     /**
+     * get record by column single
+     */
+    public function get_by_column_single($model, $column, $value)
+    {
+        return $model->where($column, $value)->first();
+    }
+
+    /**
      * delete record by its id
      */
     public function delete($model, $id)
